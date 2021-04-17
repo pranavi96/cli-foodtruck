@@ -4,7 +4,7 @@ import okhttp3.*;
 
 public class RequestProcessor {
 
-    public static <T> T request(HttpUrl url, String apiKey, String apiSecret, Class<T> genericClass) {
+    public static <T> T request(HttpUrl url, Class<T> genericClass) {
 
         Gson gson = new Gson();
 
@@ -12,12 +12,11 @@ public class RequestProcessor {
         OkHttpClient client = new OkHttpClient();
 
         // Add credentials
-        String credentials = Credentials.basic(apiKey, apiSecret);
+
 
         // Make request
         Request request = new Request.Builder()
                 .url(url)
-                .header("Authorization", credentials)
                 .build();
 
         try {

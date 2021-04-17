@@ -6,29 +6,20 @@ import java.util.Collections;
 import java.util.List;
 
 public class Main {
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
     public static void main(String[] args) {
 
         String pageLength = "10";
         // Ask user for API Key and Secret
-        try {
-            System.out.println("Enter API Token Key");
-            String apiKey = br.readLine();
-            System.out.println("Enter API Token Secret");
-            String apiSecret = br.readLine();
+
             FoodTruckRetriever foodTruckRetriever = new FoodTruckRetriever();
             // Fetch the data
-            List<FoodTruckData> foodTruckDataList = foodTruckRetriever.retrieveData("0", pageLength,apiKey,apiSecret);
+            List<FoodTruckData> foodTruckDataList = foodTruckRetriever.retrieveData("0", pageLength);
             //Sort the list alphabetically
             Collections.sort(foodTruckDataList,(a,b)->a.applicant.compareTo(b.applicant));
             // Print with pagination
             printPages(foodTruckDataList, pageLength);
-        }
-        catch(Exception e)
-        {
-            System.out.println("Error: " + e);
 
-        }
 
 
     }
@@ -36,7 +27,7 @@ public class Main {
     private static void printPages(List<FoodTruckData> foodTruckDataList, String pageLength) {
 
         // Ask for user input
-
+         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int count = 1;
         while (true) {
 
@@ -54,6 +45,7 @@ public class Main {
 
             // Check if page is last
             if (foodTruckDataList.size() < Integer.parseInt(pageLength)) {
+                System.out.print("this is the last page");
                 break;
             } else {
                 System.out.print("q to quit, any other key to continue to next page: ");

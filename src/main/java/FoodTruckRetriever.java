@@ -11,7 +11,7 @@ public class FoodTruckRetriever {
     // TODO remove later
 
 
-    public List<FoodTruckData> retrieveData(String offset, String limit,String apiKey,String apiSecret) {
+    public List<FoodTruckData> retrieveData(String offset, String limit) {
 
         List<FoodTruckData> foodTruckDataList;
 
@@ -21,7 +21,7 @@ public class FoodTruckRetriever {
 
         //call url with basic auth
         RequestProcessor requestProcessor=new RequestProcessor();
-        FoodTruckData[] gsonObject=requestProcessor.request(uri, apiKey, apiSecret, FoodTruckData[].class);
+        FoodTruckData[] gsonObject=requestProcessor.request(uri,FoodTruckData[].class);
 
         //parse the json and create FoodTruck Objects
 
