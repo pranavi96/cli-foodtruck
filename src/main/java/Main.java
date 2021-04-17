@@ -1,32 +1,47 @@
+
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     public static void main(String[] args) {
 
         String pageLength = "10";
         // Ask user for API Key and Secret
+        try {
+            System.out.println("Enter API Token Key");
+            String apiKey = br.readLine();
+            System.out.println("Enter API Token Secret");
+            String apiSecret = br.readLine();
+            FoodTruckRetriever foodTruckRetriever = new FoodTruckRetriever();
+            // Fetch the data
+            List<FoodTruckData> foodTruckDataList = foodTruckRetriever.retrieveData("0", pageLength,apiKey,apiSecret);
+            //Sort the list alphabetically
+            Collections.sort(foodTruckDataList,(a,b)->a.applicant.compareTo(b.applicant));
+            // Print with pagination
+            printPages(foodTruckDataList, pageLength);
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error: " + e);
+
+        }
 
 
-        // Fetch the data
-        FoodTruckRetriever foodTruckRetriever = new FoodTruckRetriever();
-        List<FoodTruckData> foodTruckDataList = foodTruckRetriever.retrieveData("0", pageLength);
-
-
-        // Print with pagination
-        printPages(foodTruckDataList, pageLength);
     }
 
     private static void printPages(List<FoodTruckData> foodTruckDataList, String pageLength) {
 
         // Ask for user input
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+        int count = 1;
         while (true) {
 
             // Print the page
-            int count = 1;
+
             for (FoodTruckData foodTruckData : foodTruckDataList) {
                 System.out.println(count++ + ": ");
                 System.out.println("    Name: " + foodTruckData.applicant);

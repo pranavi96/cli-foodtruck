@@ -10,7 +10,8 @@ public class FoodTruckRetriever {
     // Global secrets
     // TODO remove later
 
-    public List<FoodTruckData> retrieveData(String offset, String limit) {
+
+    public List<FoodTruckData> retrieveData(String offset, String limit,String apiKey,String apiSecret) {
 
         List<FoodTruckData> foodTruckDataList;
 
