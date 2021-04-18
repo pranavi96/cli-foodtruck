@@ -45,7 +45,7 @@ public class Main {
 
             // Check if page is last
             if (foodTruckDataList.size() < Integer.parseInt(pageLength)) {
-                System.out.print("No more Food trucks open at this time");
+                System.out.println("No more Food trucks open at this time");
                 System.out.println("Exiting........");
                 break;
             } else {

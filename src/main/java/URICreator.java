@@ -17,6 +17,8 @@ public class URICreator {
 
 
         // Build url
+        //made use of the query parameters available on the San Fransisco API
+        //instead of querying everything and then filtering
         HttpUrl httpUrl = HttpUrl.parse("https://data.sfgov.org/resource/jjew-r69b.json")
                 .newBuilder()
                 .addQueryParameter("dayorder", Integer.toString(dayOfTheWeek))
