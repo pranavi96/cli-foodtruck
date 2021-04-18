@@ -13,6 +13,7 @@ The application should return names and addresses open at that time. At a time 1
 
 
 # This will build and package all the depdendencies in a single jar and execute the program
+
 mvn package shade:shade
 java -jar ./target/FoodTruckSF-1.0-SNAPSHOT.jar
 
