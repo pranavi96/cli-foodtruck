@@ -32,7 +32,7 @@ public class Main {
         while (true) {
 
             // Print the page
-            System.out.println("Searching for food trucks..........");
+            System.out.println("Searching for food trucks.......... ");
             for (FoodTruckData foodTruckData : foodTruckDataList) {
                 System.out.println(count++ + ": ");
                 System.out.println("    Name: " + foodTruckData.applicant);
@@ -46,14 +46,17 @@ public class Main {
             // Check if page is last
             if (foodTruckDataList.size() < Integer.parseInt(pageLength)) {
                 System.out.print("No more Food trucks open at this time");
+                System.out.println("Exiting........");
                 break;
             } else {
-                System.out.print("q|Q to quit, any other key to continue to view more results: ");
+                System.out.print(" Press Enter for more results, any other key to quit: ");
 
                 // Try to get input
                 try {
                     char input = (char)br.read();
-                    if (input=='q'||input=='Q') {
+                    if (input!='\n') {
+                        //stop taking input when user presses any other key
+                        System.out.println("Exiting........");
                         break;
                     }
                 } catch (Exception e) {
