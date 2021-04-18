@@ -12,12 +12,13 @@ The application should return names and addresses open at that time. At a time 1
 * Export the zip to a local folder and change your current working directory to that
 ```BASH
 
-# This will build and package all the depdendencies
-# in a single jar
-mvn package shade:shade
+# This will build and package all the depdendencies in a single jar
+# And execute the program
 
-# Now we execute the program
+mvn package shade:shade
 java -jar ./target/FoodTruckSF-1.0-SNAPSHOT.jar
+
+
 ```
 
 
