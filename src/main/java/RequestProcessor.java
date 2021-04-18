@@ -4,15 +4,12 @@ import okhttp3.*;
 
 public class RequestProcessor {
 
-    public static <T> T request(HttpUrl url, Class<T> genericClass) {
+    public static <P> P request(HttpUrl url, Class<P> genericClass) {
 
         Gson gson = new Gson();
 
         // Initialize OKHTTP client
         OkHttpClient client = new OkHttpClient();
-
-        // Add credentials
-
 
         // Make request
         Request request = new Request.Builder()

@@ -1,7 +1,6 @@
-import com.google.gson.Gson;
+
 import okhttp3.HttpUrl;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

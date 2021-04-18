@@ -8,7 +8,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-
+       //Displaying 10 results per page
         String pageLength = "10";
         // Ask user for API Key and Secret
 
@@ -45,15 +45,15 @@ public class Main {
 
             // Check if page is last
             if (foodTruckDataList.size() < Integer.parseInt(pageLength)) {
-                System.out.print("this is the last page");
+                System.out.print("No more results to show");
                 break;
             } else {
-                System.out.print("q to quit, any other key to continue to next page: ");
+                System.out.print("q|Q to quit, any other key to continue to view more results: ");
 
                 // Try to get input
                 try {
                     char input = (char)br.read();
-                    if (input=='q') {
+                    if (input=='q'||input=='Q') {
                         break;
                     }
                 } catch (Exception e) {
