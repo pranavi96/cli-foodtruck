@@ -32,7 +32,7 @@ public class Main {
         while (true) {
 
             // Print the page
-
+            System.out.println("Searching for food trucks..........");
             for (FoodTruckData foodTruckData : foodTruckDataList) {
                 System.out.println(count++ + ": ");
                 System.out.println("    Name: " + foodTruckData.applicant);
@@ -45,7 +45,7 @@ public class Main {
 
             // Check if page is last
             if (foodTruckDataList.size() < Integer.parseInt(pageLength)) {
-                System.out.print("No more results to show");
+                System.out.print("No more Food trucks open at this time");
                 break;
             } else {
                 System.out.print("q|Q to quit, any other key to continue to view more results: ");

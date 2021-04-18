@@ -19,7 +19,6 @@ public class RequestProcessor {
         try {
             ResponseBody responseBody = client.newCall(request).execute().body();
 
-            // TODO handle character encoding
             String json = responseBody.string();
 
             // Return data

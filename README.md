@@ -1,10 +1,22 @@
 # cli-foodtruck
 A Java based cli to get foodtruck data from data.sfgov.org
 
-Instructions to run 
+## Prerequisites
 
-the website requires the user to sign up and provide the api token and api secret.
-once the user logs in and verfies his/her email id he will be provided with a key and a secret which is needed to retrieve the data.
+* Java 11 should be installed
+* `mvn` should be installed
+
+## Instructions to run
+* Download the zip
+* Export the zip to a local folder and change your current working directory to that
+```BASH
+
+# This will build and package all the depdendencies
+# in a single jar
+mvn package shade:shade
+
+# Now we execute the program
+java -jar ./target/FoodTruckSF-1.0-SNAPSHOT.jar
+```
 
 
-The Main.java contains 
